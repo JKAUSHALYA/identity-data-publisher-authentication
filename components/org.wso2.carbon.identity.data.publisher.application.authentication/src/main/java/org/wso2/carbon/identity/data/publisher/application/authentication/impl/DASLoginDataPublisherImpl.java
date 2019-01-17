@@ -23,6 +23,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.CarbonException;
 import org.wso2.carbon.base.MultitenantConstants;
+import org.wso2.carbon.context.PrivilegedCarbonContext;
 import org.wso2.carbon.core.util.AnonymousSessionUtil;
 import org.wso2.carbon.databridge.commons.Event;
 import org.wso2.carbon.identity.application.authentication.framework.context.AuthenticationContext;
@@ -204,7 +205,7 @@ public class DASLoginDataPublisherImpl extends AbstractAuthenticationDataPublish
         return AuthPublisherConstants.DAS_LOGIN_PUBLISHER_NAME;
     }
 
-    private String getCommaSeparatedUserRoles(String userName, String tenantDomain) {
+    protected String getCommaSeparatedUserRoles(String userName, String tenantDomain) {
 
         if (LOG.isDebugEnabled()) {
             LOG.debug("Retrieving roles for user " + userName + ", tenant domain " + tenantDomain);
